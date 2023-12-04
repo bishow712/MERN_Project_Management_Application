@@ -1,0 +1,19 @@
+{
+  "name": "pma-mern",
+  "version": "1.0.0",
+  "description": "Project MAnagement Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bishow712/MERN_Project_Management_Application.git"
+  },
+  "author": "Bishow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bishow712/MERN_Project_Management_Application/issues"
+  },
+  "homepage": "https://github.com/bishow712/MERN_Project_Management_Application#readme"
+}
