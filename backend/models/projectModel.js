@@ -6,17 +6,17 @@ const projectSchema = mongoose.Schema({
         required: [true, 'Add project name.']
     },
     projectDuration : {
-        type: [Number, 'Days'],
+        type: Number,
     },
-    //Array
-    projectTeam : {
-        type : Map,
-        of: String
-    },
-    //Boolean
-    projectComplete : {
-        type: Boolean,
-    }
+    // //Array
+    // projectTeam : {
+    //     type : Map,
+    //     of: String
+    // },
+    // //Boolean
+    // projectComplete : {
+    //     type: Boolean,
+    // }
 }, {timestamps: true,})
 
 module.exports = mongoose.model('Project', projectSchema)
