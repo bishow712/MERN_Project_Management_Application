@@ -3,6 +3,14 @@ const asyncHandler = require('express-async-handler')
 const Project = require('../models/projectModel')
 const User = require('../models/userModel')
 
+//@route GET /api/projects
+//@access Private
+const getAllProject = asyncHandler(async (req,res) => {
+    //{ user: req.user.id } -- To match the id present in the token
+    const projects = await Project.find()
+
+    res.status(200).json(projects)
+})
 
 //@route GET /api/projects
 //@access Private
@@ -86,4 +94,4 @@ const deleteProject = asyncHandler(async (req,res) => {
     res.status(200).json({ id: req.params.id })
 })
 
-module.exports = {getProject, setProject, updateProject, deleteProject}
+module.exports = {getAllProject, getProject, setProject, updateProject, deleteProject}
