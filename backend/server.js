@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express')
 //.config() allows us to have .env file with our variables
 const dotenv = require('dotenv').config()
@@ -17,6 +18,17 @@ app.use(express.urlencoded({extended: false}))
 //Middleware for routing
 app.use('/api/projects', require('./routes/projectRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
+
+//For Deployment (Heroku)
+//Serve frontend (Also do npm run build in frontend folder)
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static(path.join(__dirname, '../frontend/build')))
+
+    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, '../', 'frontend', 'build', 'index.html')))
+}
+else {
+    app.get('/', (req,res)=> res.send('Set environment to production.'))
+}
 
 app.use(errorHandler)
 
